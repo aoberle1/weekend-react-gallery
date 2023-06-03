@@ -7,6 +7,17 @@ function App() {
 
   const [gallery, setGallery] = useState([]);
 
+  const addLike = (id) => {
+    console.log('clicked Like button!')
+    axios.put(`/gallery/like/${id}`).then(response => {
+        console.log('testing');
+        getGallery();
+    }).catch(error => {
+        console.log('error in PUT', error)
+        alert('Error with PUT', error)
+    })
+}
+
   const getGallery = () => {
     axios.get('/gallery').then(response => {
       console.log('Getting gallery');
@@ -27,7 +38,7 @@ function App() {
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
       <p>Gallery goes here</p>
-      <GalleryList gallery={gallery} />
+      <GalleryList gallery={gallery} getGallery={getGallery} addLike={addLike} />
     </div>
   );
 }

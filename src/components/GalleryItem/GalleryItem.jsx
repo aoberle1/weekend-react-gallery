@@ -1,17 +1,47 @@
 import './GalleryItem.css';
+import { useState } from 'react';
+import axios from 'axios';
 
 
-function GalleryItem (props) {
+function GalleryItem ( { picture, addLike } ) {
 
-    let picture = props.picture;
+    console.log(picture.id)
+
+
+
+   const [display, setDisplay] = useState(false)
+
+   const toggleDisplay = () => {
+        console.log( 'clicked a picture' );
+        setDisplay(!display);
+   }
 
     return (
-        <div className="picture-container">
-          <img src={picture.path} className="picture" key={picture.id} />
+        
+        <div key={picture.id} className="picture-container">
+          {/* <img src={picture.path} onClick={toggleDisplay} className="picture" />
           <br></br>
-          <button>Like</button>
-          <p>Likes: {picture.likes}</p>
+          <button onClick={ () => addLike(picture.id)}>Like</button>
+          <p>Likes: {picture.likes}</p> */}
+          {
+            display ? (
+                <>
+                <p onClick={toggleDisplay}>{picture.description}</p>
+                <br></br>
+                <button onClick={ () => addLike(picture.id)}>Like</button>
+                <p>Likes: {picture.likes}</p>
+                </>
+            ) : (
+                <>
+                <img src={picture.path} onClick={toggleDisplay} className="picture" />
+                <br></br>
+                <button onClick={ () => addLike(picture.id)}>Like</button>
+                <p>Likes: {picture.likes}</p>
+                </>
+            )
+          }
           </div>
+          
     )
 
 }
