@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList';
+import Header from '../Header/Header.jsx'
+
 
 function App() {
 
@@ -20,7 +22,7 @@ function App() {
 
   const getGallery = () => {
     axios.get('/gallery').then(response => {
-      console.log('Getting gallery');
+      console.log('Getting gallery', response.data);
       setGallery(response.data)
     }).catch(error => {
       console.log('Error in GET:', error)
@@ -34,11 +36,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Gallery of My Life</h1>
-      </header>
+      <Header />
+      <main>
       <p>Gallery goes here</p>
-      <GalleryList gallery={gallery} getGallery={getGallery} addLike={addLike} />
+      <GalleryList key={1} gallery={gallery} getGallery={getGallery} addLike={addLike} />
+      </main>
     </div>
   );
 }

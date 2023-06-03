@@ -10,7 +10,10 @@ function GalleryList (props) {
         <div className='gallery'>
         {gallery.map(picture => (
           <>
-          <GalleryItem picture={picture} addLike={props.addLike}/>
+          <GalleryItem key={picture.id} picture={picture}/>
+          <br></br>
+            <button onClick={ () => props.addLike(picture.id)}>Like</button>
+            <p>Likes: {picture.likes}</p>
           </>
           
         ))}

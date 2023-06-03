@@ -16,21 +16,21 @@ function GalleryItem ( { picture, addLike } ) {
 
     return (
         
-        <div key={picture.id} className="picture-container">
+        <div className="picture-container">
           {
             display ? (
                 <>
                 <p onClick={toggleDisplay}>{picture.description}</p>
-                <br></br>
+                {/* <br></br>
                 <button onClick={ () => addLike(picture.id)}>Like</button>
-                <p>Likes: {picture.likes}</p>
+                <p>Likes: {picture.likes}</p> */}
                 </>
             ) : (
                 <>
                 <img src={picture.path} onClick={toggleDisplay} className="picture" />
-                <br></br>
+                {/* <br></br>
                 <button onClick={ () => addLike(picture.id)}>Like</button>
-                <p>Likes: {picture.likes}</p>
+                <p>Likes: {picture.likes}</p> */}
                 </>
             )
           }
