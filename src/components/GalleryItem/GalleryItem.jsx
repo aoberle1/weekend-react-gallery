@@ -1,7 +1,5 @@
 import './GalleryItem.css';
 import { useState } from 'react';
-import axios from 'axios';
-
 
 function GalleryItem ( { picture, addLike } ) {
 
@@ -19,10 +17,6 @@ function GalleryItem ( { picture, addLike } ) {
     return (
         
         <div key={picture.id} className="picture-container">
-          {/* <img src={picture.path} onClick={toggleDisplay} className="picture" />
-          <br></br>
-          <button onClick={ () => addLike(picture.id)}>Like</button>
-          <p>Likes: {picture.likes}</p> */}
           {
             display ? (
                 <>
