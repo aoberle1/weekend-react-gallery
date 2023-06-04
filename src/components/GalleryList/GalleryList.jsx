@@ -1,4 +1,6 @@
 import GalleryItem from "../GalleryItem/GalleryItem";
+import './GalleryList.css';
+
 
 function GalleryList (props) {
 
@@ -11,7 +13,6 @@ function GalleryList (props) {
         {gallery.map(picture => (
           <>
           <GalleryItem key={picture.id} picture={picture}/>
-          <br></br>
             <button onClick={ () => props.addLike(picture.id)}>Like</button>
             <p>Likes: {picture.likes}</p>
           </>
