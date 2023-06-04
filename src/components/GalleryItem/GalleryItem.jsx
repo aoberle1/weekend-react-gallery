@@ -5,8 +5,8 @@ function GalleryItem ( { picture, addLike } ) {
 
     console.log(picture.id)
 
-
-
+    // state variable created to be used by toggleDisplay function to conditionally display
+    // either picture or picture description
    const [display, setDisplay] = useState(false)
 
    const toggleDisplay = () => {
@@ -18,19 +18,14 @@ function GalleryItem ( { picture, addLike } ) {
         
         <div className="picture-container">
           {
+            // using ternary operator to conditionally display either picture or description of picture when img or text is clicked
             display ? (
                 <>
                 <p onClick={toggleDisplay}>{picture.description}</p>
-                {/* <br></br>
-                <button onClick={ () => addLike(picture.id)}>Like</button>
-                <p>Likes: {picture.likes}</p> */}
                 </>
             ) : (
                 <>
                 <img src={picture.path} onClick={toggleDisplay} className="picture" />
-                {/* <br></br>
-                <button onClick={ () => addLike(picture.id)}>Like</button>
-                <p>Likes: {picture.likes}</p> */}
                 </>
             )
           }

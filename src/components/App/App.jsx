@@ -7,8 +7,11 @@ import Header from '../Header/Header.jsx'
 
 function App() {
 
+  // state variable used by getGallery function to set gallery variable and render variable (array of objects) to DOM
   const [gallery, setGallery] = useState([]);
 
+
+  // put request function using the id of the picture connected to the like button clicked for targeting
   const addLike = (id) => {
     console.log('clicked Like button!')
     axios.put(`/gallery/like/${id}`).then(response => {
@@ -20,6 +23,7 @@ function App() {
     })
 }
 
+  // get request function called upon page load and upon like button click (addLike)
   const getGallery = () => {
     axios.get('/gallery').then(response => {
       console.log('Getting gallery', response.data);
@@ -30,15 +34,20 @@ function App() {
     })
   };
 
+  // useEffect will run getGallery once after page render
   useEffect(() => {
     getGallery();
   }, []);
 
+  // what will be rendered to DOM goes here
   return (
     <div className="App">
+      {/* Header component */}
       <Header />
       <main>
       <p>Gallery goes here</p>
+      {/* key is nonsense, tried key={various forms of thing.id} in many places to get key error to go away */}
+      {/* GalleryList component - props are gallery variable, getGallery function, and addLike function */}
       <GalleryList key={1} gallery={gallery} getGallery={getGallery} addLike={addLike} />
       </main>
     </div>

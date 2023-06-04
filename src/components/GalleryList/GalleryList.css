@@ -1,3 +1,21 @@
 .gallery {
     display: inline-block;
 }
+
+
+/* Need to figure out where to stash this class name in .jsx - won't wrap around button/likes */
+.picture-container {
+    background-color: brown;
+    color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.8em;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    display: block;
+}
