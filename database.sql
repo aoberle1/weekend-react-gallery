@@ -1,3 +1,5 @@
+-- database name: react_gallery
+
 CREATE TABLE "gallery" (
 	"id" SERIAL PRIMARY KEY,
 	"path" VARCHAR(120) NOT NULL,

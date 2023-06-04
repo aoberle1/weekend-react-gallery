@@ -1,6 +1,8 @@
 import './GalleryItem.css';
 import { useState } from 'react';
 
+
+// passing deconstructed props to show syntax
 function GalleryItem ( { picture, addLike } ) {
 
     console.log(picture.id)
@@ -9,6 +11,7 @@ function GalleryItem ( { picture, addLike } ) {
     // either picture or picture description
    const [display, setDisplay] = useState(false)
 
+   // function to be run when picture-
    const toggleDisplay = () => {
         console.log( 'clicked a picture' );
         setDisplay(!display);
