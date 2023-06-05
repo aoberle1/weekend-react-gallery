@@ -11,7 +11,7 @@ function GalleryItem ( { picture, addLike } ) {
     // either picture or picture description
    const [display, setDisplay] = useState(false)
 
-   // function to be run when picture-
+   // function to be run when div with class picture-container isClicked
    const toggleDisplay = () => {
         console.log( 'clicked a picture' );
         setDisplay(!display);
@@ -24,9 +24,11 @@ function GalleryItem ( { picture, addLike } ) {
             // using ternary operator to conditionally display either picture or description of picture when img or text is clicked
             display ? (
                 <>
+                {/* if value of display variable is true, render this */}
                 <p onClick={toggleDisplay}>{picture.description}</p>
                 </>
             ) : (
+                // if value of display is false, render this
                 <>
                 <img src={picture.path} onClick={toggleDisplay} className="picture" />
                 </>
