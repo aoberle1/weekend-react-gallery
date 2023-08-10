@@ -46,7 +46,6 @@ function App() {
       <Header />
       <main>
       <p>Gallery goes here</p>
-      {/* key is nonsense, tried key={various forms of thing.id} in many places to get key error to go away */}
       {/* GalleryList component - props are gallery variable, getGallery function, and addLike function */}
       <GalleryList key={1} gallery={gallery} getGallery={getGallery} addLike={addLike} />
       </main>
